@@ -137,12 +137,12 @@
         }
         
         @media (max-width: 600px) {
+            .form-group {
+                width: 100%;
+            }
+
             .conversion-row {
                 flex-direction: column;
-            }
-            
-            .equals {
-                margin: 10px 0;
             }
         }
     </style>
@@ -207,7 +207,7 @@
                     <div class="form-group">
                         <label for="mass-from">De</label>
                         <select id="mass-from">
-                            <option value="t">Toneladas métricas (t)</option>
+                            <option value="t">Toneladas (t)</option>
                             <option value="kg">Kilograma (kg)</option>
                             <option value="g">Gramas (g)</option>
                             <option value="mg">Miligramas (mg)</option>
@@ -220,7 +220,7 @@
                         <label for="mass-to">To</label>
                         <select id="mass-to">
                             <option value="kg">Kilograma (kg)</option>
-                            <option value="t">Toneladas métricas (t)</option>
+                            <option value="t">Toneladas (t)</option>
                             <option value="g">Gramas (g)</option>
                             <option value="mg">Miligramas (mg)</option>
                             <option value="lb">Libras (lb)</option>
@@ -346,7 +346,7 @@
             
             const result = convert(value, fromUnit, toUnit, distanceFactors);
             document.getElementById('distance-result').textContent = 
-                `${value} ${fromUnit} = ${result.toFixed(6)} ${toUnit}`;
+                `${value} ${fromUnit} = ${result.toFixed(2)} ${toUnit}`;
         });
         
         // Mass conversion
@@ -362,7 +362,7 @@
             
             const result = convert(value, fromUnit, toUnit, massFactors);
             document.getElementById('mass-result').textContent = 
-                `${value} ${fromUnit} = ${result.toFixed(6)} ${toUnit}`;
+                `${value} ${fromUnit} = ${result.toFixed(2)} ${toUnit}`;
         });
         
         // Time conversion
@@ -378,7 +378,7 @@
             
             const result = convert(value, fromUnit, toUnit, timeFactors);
             document.getElementById('time-result').textContent = 
-                `${value} ${fromUnit} = ${result.toFixed(6)} ${toUnit}`;
+                `${value} ${fromUnit} = ${result.toFixed(2)} ${toUnit}`;
         });
     </script>
 </body>
