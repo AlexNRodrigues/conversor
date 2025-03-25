@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Unit Converter</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2980b9;
+            --background: #f5f7fa;
+            --text: #2c3e50;
+            --light: #ecf0f1;
+            --border: #dfe6e9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: var(--light);
+            border: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            font-weight: 500;
+        }
+        
+        .tab.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .conversion-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        label {
+            font-weight: 500;
+        }
+        
+        input, select {
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .conversion-row {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .conversion-row > div {
+            flex: 1;
+        }
+        
+        .equals {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--light);
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--secondary);
+        }
+        
+        @media (max-width: 600px) {
+            .conversion-row {
+                flex-direction: column;
+            }
+            
+            .equals {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Physics Unit Converter</h1>
+        
+        <div class="tabs">
+            <button class="tab active" data-tab="distance">Distance</button>
+            <button class="tab" data-tab="mass">Mass</button>
+            <button class="tab" data-tab="time">Time</button>
+        </div>
+        
+        <div id="distance" class="tab-content active">
+            <div class="conversion-form">
+                <div class="conversion-row">
+                    <div class="form-group">
+                        <label for="distance-value">Value</label>
+                        <input type="number" id="distance-value" placeholder="Enter value">
+                    </div>
+                    <div class="form-group">
+                        <label for="distance-from">From</label>
+                        <select id="distance-from">
+                            <option value="km">Kilometers (km)</option>
+                            <option value="m">Meters (m)</option>
+                            <option value="cm">Centimeters (cm)</option>
+                            <option value="mm">Millimeters (mm)</option>
+                            <option value="mi">Miles (mi)</option>
+                            <option value="yd">Yards (yd)</option>
+                            <option value="ft">Feet (ft)</option>
+                            <option value="in">Inches (in)</option>
+                        </select>
+                    </div>
+                    <div class="equals">=</div>
+                    <div class="form-group">
+                        <label for="distance-to">To</label>
+                        <select id="distance-to">
+                            <option value="m">Meters (m)</option>
+                            <option value="km">Kilometers (km)</option>
+                            <option value="cm">Centimeters (cm)</option>
+                            <option value="mm">Millimeters (mm)</option>
+                            <option value="mi">Miles (mi)</option>
+                            <option value="yd">Yards (yd)</option>
+                            <option value="ft">Feet (ft)</option>
+                            <option value="in">Inches (in)</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="distance-convert">Convert</button>
+                <div id="distance-result" class="result">Result will appear here</div>
+            </div>
+        </div>
+        
+        <div id="mass" class="tab-content">
+            <div class="conversion-form">
+                <div class="conversion-row">
+                    <div class="form-group">
+                        <label for="mass-value">Value</label>
+                        <input type="number" id="mass-value" placeholder="Enter value">
+                    </div>
+                    <div class="form-group">
+                        <label for="mass-from">From</label>
+                        <select id="mass-from">
+                            <option value="t">Metric Tons (t)</option>
+                            <option value="kg">Kilograms (kg)</option>
+                            <option value="g">Grams (g)</option>
+                            <option value="mg">Milligrams (mg)</option>
+                            <option value="lb">Pounds (lb)</option>
+                            <option value="oz">Ounces (oz)</option>
+                        </select>
+                    </div>
+                    <div class="equals">=</div>
+                    <div class="form-group">
+                        <label for="mass-to">To</label>
+                        <select id="mass-to">
+                            <option value="kg">Kilograms (kg)</option>
+                            <option value="t">Metric Tons (t)</option>
+                            <option value="g">Grams (g)</option>
+                            <option value="mg">Milligrams (mg)</option>
+                            <option value="lb">Pounds (lb)</option>
+                            <option value="oz">Ounces (oz)</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="mass-convert">Convert</button>
+                <div id="mass-result" class="result">Result will appear here</div>
+            </div>
+        </div>
+        
+        <div id="time" class="tab-content">
+            <div class="conversion-form">
+                <div class="conversion-row">
+                    <div class="form-group">
+                        <label for="time-value">Value</label>
+                        <input type="number" id="time-value" placeholder="Enter value">
+                    </div>
+                    <div class="form-group">
+                        <label for="time-from">From</label>
+                        <select id="time-from">
+                            <option value="yr">Years (yr)</option>
+                            <option value="mo">Months (mo)</option>
+                            <option value="wk">Weeks (wk)</option>
+                            <option value="d">Days (d)</option>
+                            <option value="h">Hours (h)</option>
+                            <option value="min">Minutes (min)</option>
+                            <option value="s">Seconds (s)</option>
+                            <option value="ms">Milliseconds (ms)</option>
+                        </select>
+                    </div>
+                    <div class="equals">=</div>
+                    <div class="form-group">
+                        <label for="time-to">To</label>
+                        <select id="time-to">
+                            <option value="s">Seconds (s)</option>
+                            <option value="yr">Years (yr)</option>
+                            <option value="mo">Months (mo)</option>
+                            <option value="wk">Weeks (wk)</option>
+                            <option value="d">Days (d)</option>
+                            <option value="h">Hours (h)</option>
+                            <option value="min">Minutes (min)</option>
+                            <option value="ms">Milliseconds (ms)</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="time-convert">Convert</button>
+                <div id="time-result" class="result">Result will appear here</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to current tab and content
+                tab.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Conversion factors
+        const distanceFactors = {
+            km: 1000,      // to meters
+            m: 1,          // base unit
+            cm: 0.01,      // to meters
+            mm: 0.001,     // to meters
+            mi: 1609.34,   // to meters
+            yd: 0.9144,    // to meters
+            ft: 0.3048,    // to meters
+            in: 0.0254     // to meters
+        };
+        
+        const massFactors = {
+            t: 1000,       // to kilograms
+            kg: 1,         // base unit
+            g: 0.001,      // to kilograms
+            mg: 0.000001,  // to kilograms
+            lb: 0.453592,  // to kilograms
+            oz: 0.0283495  // to kilograms
+        };
+        
+        const timeFactors = {
+            yr: 31536000,  // to seconds (365 days)
+            mo: 2592000,   // to seconds (30 days)
+            wk: 604800,    // to seconds
+            d: 86400,      // to seconds
+            h: 3600,       // to seconds
+            min: 60,       // to seconds
+            s: 1,          // base unit
+            ms: 0.001      // to seconds
+        };
+        
+        // Conversion functions
+        function convert(value, fromUnit, toUnit, factors) {
+            // Convert to base unit
+            const valueInBaseUnit = value * factors[fromUnit];
+            // Convert from base unit to target unit
+            return valueInBaseUnit / factors[toUnit];
+        }
+        
+        // Distance conversion
+        document.getElementById('distance-convert').addEventListener('click', () => {
+            const value = parseFloat(document.getElementById('distance-value').value);
+            const fromUnit = document.getElementById('distance-from').value;
+            const toUnit = document.getElementById('distance-to').value;
+            
+            if (isNaN(value)) {
+                document.getElementById('distance-result').textContent = 'Please enter a valid number';
+                return;
+            }
+            
+            const result = convert(value, fromUnit, toUnit, distanceFactors);
+            document.getElementById('distance-result').textContent = 
+                `${value} ${fromUnit} = ${result.toFixed(6)} ${toUnit}`;
+        });
+        
+        // Mass conversion
+        document.getElementById('mass-convert').addEventListener('click', () => {
+            const value = parseFloat(document.getElementById('mass-value').value);
+            const fromUnit = document.getElementById('mass-from').value;
+            const toUnit = document.getElementById('mass-to').value;
+            
+            if (isNaN(value)) {
+                document.getElementById('mass-result').textContent = 'Please enter a valid number';
+                return;
+            }
+            
+            const result = convert(value, fromUnit, toUnit, massFactors);
+            document.getElementById('mass-result').textContent = 
+                `${value} ${fromUnit} = ${result.toFixed(6)} ${toUnit}`;
+        });
+        
+        // Time conversion
+        document.getElementById('time-convert').addEventListener('click', () => {
+            const value = parseFloat(document.getElementById('time-value').value);
+            const fromUnit = document.getElementById('time-from').value;
+            const toUnit = document.getElementById('time-to').value;
+            
+            if (isNaN(value)) {
+                document.getElementById('time-result').textContent = 'Please enter a valid number';
+                return;
+            }
+            
+            const result = convert(value, fromUnit, toUnit, timeFactors);
+            document.getElementById('time-result').textContent = 
+                `${value} ${fromUnit} = ${result.toFixed(6)} ${toUnit}`;
+        });
+    </script>
+</body>
+</html>
