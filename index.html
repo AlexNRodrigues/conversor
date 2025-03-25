@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physics Unit Converter</title>
+    <title>Conversor de unidades</title>
     <style>
         :root {
             --primary: #3498db;
@@ -149,51 +149,51 @@
 </head>
 <body>
     <div class="container">
-        <h1>Physics Unit Converter</h1>
+        <h1>Conversor de unidades</h1>
         
         <div class="tabs">
-            <button class="tab active" data-tab="distance">Distance</button>
-            <button class="tab" data-tab="mass">Mass</button>
-            <button class="tab" data-tab="time">Time</button>
+            <button class="tab active" data-tab="distance">Distância</button>
+            <button class="tab" data-tab="mass">Massa</button>
+            <button class="tab" data-tab="time">Tempo</button>
         </div>
         
         <div id="distance" class="tab-content active">
             <div class="conversion-form">
                 <div class="conversion-row">
                     <div class="form-group">
-                        <label for="distance-value">Value</label>
-                        <input type="number" id="distance-value" placeholder="Enter value">
+                        <label for="distance-value">Valor</label>
+                        <input type="number" id="distance-value" placeholder="Inserir valor">
                     </div>
                     <div class="form-group">
-                        <label for="distance-from">From</label>
+                        <label for="distance-from">De</label>
                         <select id="distance-from">
-                            <option value="km">Kilometers (km)</option>
-                            <option value="m">Meters (m)</option>
-                            <option value="cm">Centimeters (cm)</option>
-                            <option value="mm">Millimeters (mm)</option>
-                            <option value="mi">Miles (mi)</option>
-                            <option value="yd">Yards (yd)</option>
-                            <option value="ft">Feet (ft)</option>
-                            <option value="in">Inches (in)</option>
+                            <option value="km">Quilômetros (km)</option>
+                            <option value="m">Metros (m)</option>
+                            <option value="cm">Centímetros (cm)</option>
+                            <option value="mm">Milímetros (mm)</option>
+                            <option value="mi">Milhas (mi)</option>
+                            <option value="yd">Jardas (yd)</option>
+                            <option value="ft">Pés (ft)</option>
+                            <option value="in">Polegadas (in)</option>
                         </select>
                     </div>
                     <div class="equals">=</div>
                     <div class="form-group">
-                        <label for="distance-to">To</label>
+                        <label for="distance-to">Para</label>
                         <select id="distance-to">
-                            <option value="m">Meters (m)</option>
-                            <option value="km">Kilometers (km)</option>
-                            <option value="cm">Centimeters (cm)</option>
-                            <option value="mm">Millimeters (mm)</option>
-                            <option value="mi">Miles (mi)</option>
-                            <option value="yd">Yards (yd)</option>
-                            <option value="ft">Feet (ft)</option>
-                            <option value="in">Inches (in)</option>
+                            <option value="m">Metros (m)</option>
+                            <option value="km">Quilômetros (km)</option>
+                            <option value="cm">Centímetros (cm)</option>
+                            <option value="mm">Milímetros (mm)</option>
+                            <option value="mi">Milhas (mi)</option>
+                            <option value="yd">Jardas (yd)</option>
+                            <option value="ft">Pés (ft)</option>
+                            <option value="in">Polegadas (in)</option>
                         </select>
                     </div>
                 </div>
-                <button id="distance-convert">Convert</button>
-                <div id="distance-result" class="result">Result will appear here</div>
+                <button id="distance-convert">Converter</button>
+                <div id="distance-result" class="result">O resultado aparecerá aqui</div>
             </div>
         </div>
         
@@ -201,35 +201,35 @@
             <div class="conversion-form">
                 <div class="conversion-row">
                     <div class="form-group">
-                        <label for="mass-value">Value</label>
-                        <input type="number" id="mass-value" placeholder="Enter value">
+                        <label for="mass-value">Valor</label>
+                        <input type="number" id="mass-value" placeholder="Inserir valor">
                     </div>
                     <div class="form-group">
-                        <label for="mass-from">From</label>
+                        <label for="mass-from">De</label>
                         <select id="mass-from">
-                            <option value="t">Metric Tons (t)</option>
-                            <option value="kg">Kilograms (kg)</option>
-                            <option value="g">Grams (g)</option>
-                            <option value="mg">Milligrams (mg)</option>
-                            <option value="lb">Pounds (lb)</option>
-                            <option value="oz">Ounces (oz)</option>
+                            <option value="t">Toneladas métricas (t)</option>
+                            <option value="kg">Kilograma (kg)</option>
+                            <option value="g">Gramas (g)</option>
+                            <option value="mg">Miligramas (mg)</option>
+                            <option value="lb">Libras (lb)</option>
+                            <option value="oz">Onças (oz)</option>
                         </select>
                     </div>
                     <div class="equals">=</div>
                     <div class="form-group">
                         <label for="mass-to">To</label>
                         <select id="mass-to">
-                            <option value="kg">Kilograms (kg)</option>
-                            <option value="t">Metric Tons (t)</option>
-                            <option value="g">Grams (g)</option>
-                            <option value="mg">Milligrams (mg)</option>
-                            <option value="lb">Pounds (lb)</option>
-                            <option value="oz">Ounces (oz)</option>
+                            <option value="kg">Kilograma (kg)</option>
+                            <option value="t">Toneladas métricas (t)</option>
+                            <option value="g">Gramas (g)</option>
+                            <option value="mg">Miligramas (mg)</option>
+                            <option value="lb">Libras (lb)</option>
+                            <option value="oz">Onças (oz)</option>
                         </select>
                     </div>
                 </div>
-                <button id="mass-convert">Convert</button>
-                <div id="mass-result" class="result">Result will appear here</div>
+                <button id="mass-convert">Converter</button>
+                <div id="mass-result" class="result">O resultado aparecerá aqui</div>
             </div>
         </div>
         
@@ -237,39 +237,39 @@
             <div class="conversion-form">
                 <div class="conversion-row">
                     <div class="form-group">
-                        <label for="time-value">Value</label>
-                        <input type="number" id="time-value" placeholder="Enter value">
+                        <label for="time-value">Valor</label>
+                        <input type="number" id="time-value" placeholder="Inserir valor">
                     </div>
                     <div class="form-group">
-                        <label for="time-from">From</label>
+                        <label for="time-from">De</label>
                         <select id="time-from">
-                            <option value="yr">Years (yr)</option>
-                            <option value="mo">Months (mo)</option>
-                            <option value="wk">Weeks (wk)</option>
-                            <option value="d">Days (d)</option>
-                            <option value="h">Hours (h)</option>
-                            <option value="min">Minutes (min)</option>
-                            <option value="s">Seconds (s)</option>
-                            <option value="ms">Milliseconds (ms)</option>
+                            <option value="yr">Anos (a)</option>
+                            <option value="mo">Meses (m)</option>
+                            <option value="wk">Semanas (sem)</option>
+                            <option value="d">Dias (d)</option>
+                            <option value="h">Horas (h)</option>
+                            <option value="min">Minutos (min)</option>
+                            <option value="s">Segundos (s)</option>
+                            <option value="ms">Milissegundos (ms)</option>
                         </select>
                     </div>
                     <div class="equals">=</div>
                     <div class="form-group">
-                        <label for="time-to">To</label>
+                        <label for="time-to">Para</label>
                         <select id="time-to">
-                            <option value="s">Seconds (s)</option>
-                            <option value="yr">Years (yr)</option>
-                            <option value="mo">Months (mo)</option>
-                            <option value="wk">Weeks (wk)</option>
-                            <option value="d">Days (d)</option>
-                            <option value="h">Hours (h)</option>
-                            <option value="min">Minutes (min)</option>
-                            <option value="ms">Milliseconds (ms)</option>
+                            <option value="s">Segundos (s)</option>
+                            <option value="yr">Anos (a)</option>
+                            <option value="mo">Meses (m)</option>
+                            <option value="wk">Semanas (sem)</option>
+                            <option value="d">Dias (d)</option>
+                            <option value="h">Horas (h)</option>
+                            <option value="min">Minutos (min)</option>
+                            <option value="ms">Milissegundos (ms)</option>
                         </select>
                     </div>
                 </div>
-                <button id="time-convert">Convert</button>
-                <div id="time-result" class="result">Result will appear here</div>
+                <button id="time-convert">Converter</button>
+                <div id="time-result" class="result">O resultado aparecerá aqui</div>
             </div>
         </div>
     </div>
@@ -340,7 +340,7 @@
             const toUnit = document.getElementById('distance-to').value;
             
             if (isNaN(value)) {
-                document.getElementById('distance-result').textContent = 'Please enter a valid number';
+                document.getElementById('distance-result').textContent = 'Por favor, introduza um número válido';
                 return;
             }
             
@@ -356,7 +356,7 @@
             const toUnit = document.getElementById('mass-to').value;
             
             if (isNaN(value)) {
-                document.getElementById('mass-result').textContent = 'Please enter a valid number';
+                document.getElementById('mass-result').textContent = 'Por favor, introduza um número válido';
                 return;
             }
             
@@ -372,7 +372,7 @@
             const toUnit = document.getElementById('time-to').value;
             
             if (isNaN(value)) {
-                document.getElementById('time-result').textContent = 'Please enter a valid number';
+                document.getElementById('time-result').textContent = 'Por favor, introduza um número válido';
                 return;
             }
             
