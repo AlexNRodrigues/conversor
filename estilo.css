@@ -1,0 +1,140 @@
+:root {
+    --primaria: #3498db;
+    --secundaria: #2980b9;
+    --fundo: #f5f7fa;
+    --texto: #2c3e50;
+    --claro: #ecf0f1;
+    --borda: #dfe6e9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--fundo);
+    color: var(--texto);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primaria);
+}
+
+.abas {
+    display: flex;
+    border-bottom: 1px solid var(--borda);
+    margin-bottom: 20px;
+}
+
+.aba {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--claro);
+    border: none;
+    border-radius: 5px 5px 0 0;
+    margin-right: 5px;
+    font-weight: 500;
+}
+
+.aba.ativa {
+    background-color: var(--primaria);
+    color: white;
+}
+
+.conteudo-aba {
+    display: none;
+}
+
+.conteudo-aba.ativa {
+    display: block;
+}
+
+.formulario-conversao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-weight: 500;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid var(--borda);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.linha-conversao {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.linha-conversao > div {
+    flex: 1;
+}
+
+.igual {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.resultado {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--claro);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--primaria);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--secundaria);
+}
+
+@media (max-width: 600px) {
+    .grupo-formulario {
+        width: 100%;
+    }
+
+    .linha-conversao {
+        flex-direction: column;
+    }
+}

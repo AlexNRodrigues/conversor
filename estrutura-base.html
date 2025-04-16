@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Conversor de Unidades</title>
+        <link rel="stylesheet" href="estilo.css" />
+    </head>
+    <body>
+        <div class="contenedor">
+            <h1>Conversor de Unidades</h1>
+
+            <div class="abas">
+                <button class="aba ativa" data-aba="distancia">
+                    Distância
+                </button>
+                <button class="aba" data-aba="massa">Massa</button>
+                <button class="aba" data-aba="tempo">Tempo</button>
+            </div>
+
+            <div id="distancia" class="conteudo-aba ativa">
+                <div class="formulario-conversao">
+                    <div class="linha-conversao">
+                        <div class="grupo-formulario">
+                            <label for="valor-distancia">Valor</label>
+                            <input
+                                type="number"
+                                id="valor-distancia"
+                                placeholder="Inserir valor"
+                            />
+                        </div>
+                        <div class="grupo-formulario">
+                            <label for="de-distancia">De</label>
+                            <select id="de-distancia">
+                                <option value="km">Quilômetros (km)</option>
+                                <option value="m">Metros (m)</option>
+                                <option value="cm">Centímetros (cm)</option>
+                                <option value="mm">Milímetros (mm)</option>
+                                <option value="mi">Milhas (mi)</option>
+                                <option value="yd">Jardas (yd)</option>
+                                <option value="ft">Pés (ft)</option>
+                                <option value="in">Polegadas (in)</option>
+                            </select>
+                        </div>
+                        <div class="igual">=</div>
+                        <div class="grupo-formulario">
+                            <label for="para-distancia">Para</label>
+                            <select id="para-distancia">
+                                <option value="m">Metros (m)</option>
+                                <option value="km">Quilômetros (km)</option>
+                                <option value="cm">Centímetros (cm)</option>
+                                <option value="mm">Milímetros (mm)</option>
+                                <option value="mi">Milhas (mi)</option>
+                                <option value="yd">Jardas (yd)</option>
+                                <option value="ft">Pés (ft)</option>
+                                <option value="in">Polegadas (in)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="converter-distancia">Converter</button>
+                    <div id="resultado-distancia" class="resultado">
+                        O resultado aparecerá aqui
+                    </div>
+                </div>
+            </div>
+
+            <div id="massa" class="conteudo-aba">
+                <div class="formulario-conversao">
+                    <div class="linha-conversao">
+                        <div class="grupo-formulario">
+                            <label for="valor-massa">Valor</label>
+                            <input
+                                type="number"
+                                id="valor-massa"
+                                placeholder="Inserir valor"
+                            />
+                        </div>
+                        <div class="grupo-formulario">
+                            <label for="de-massa">De</label>
+                            <select id="de-massa">
+                                <option value="t">Toneladas (t)</option>
+                                <option value="kg">Quilogramas (kg)</option>
+                                <option value="g">Gramas (g)</option>
+                                <option value="mg">Miligramas (mg)</option>
+                                <option value="lb">Libras (lb)</option>
+                                <option value="oz">Onças (oz)</option>
+                            </select>
+                        </div>
+                        <div class="igual">=</div>
+                        <div class="grupo-formulario">
+                            <label for="para-massa">Para</label>
+                            <select id="para-massa">
+                                <option value="kg">Quilogramas (kg)</option>
+                                <option value="t">Toneladas (t)</option>
+                                <option value="g">Gramas (g)</option>
+                                <option value="mg">Miligramas (mg)</option>
+                                <option value="lb">Libras (lb)</option>
+                                <option value="oz">Onças (oz)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="converter-massa">Converter</button>
+                    <div id="resultado-massa" class="resultado">
+                        O resultado aparecerá aqui
+                    </div>
+                </div>
+            </div>
+
+            <div id="tempo" class="conteudo-aba">
+                <div class="formulario-conversao">
+                    <div class="linha-conversao">
+                        <div class="grupo-formulario">
+                            <label for="valor-tempo">Valor</label>
+                            <input
+                                type="number"
+                                id="valor-tempo"
+                                placeholder="Inserir valor"
+                            />
+                        </div>
+                        <div class="grupo-formulario">
+                            <label for="de-tempo">De</label>
+                            <select id="de-tempo">
+                                <option value="yr">Anos (a)</option>
+                                <option value="mo">Meses (m)</option>
+                                <option value="wk">Semanas (sem)</option>
+                                <option value="d">Dias (d)</option>
+                                <option value="h">Horas (h)</option>
+                                <option value="min">Minutos (min)</option>
+                                <option value="s">Segundos (s)</option>
+                                <option value="ms">Milissegundos (ms)</option>
+                            </select>
+                        </div>
+                        <div class="igual">=</div>
+                        <div class="grupo-formulario">
+                            <label for="para-tempo">Para</label>
+                            <select id="para-tempo">
+                                <option value="s">Segundos (s)</option>
+                                <option value="yr">Anos (a)</option>
+                                <option value="mo">Meses (m)</option>
+                                <option value="wk">Semanas (sem)</option>
+                                <option value="d">Dias (d)</option>
+                                <option value="h">Horas (h)</option>
+                                <option value="min">Minutos (min)</option>
+                                <option value="ms">Milissegundos (ms)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="converter-tempo">Converter</button>
+                    <div id="resultado-tempo" class="resultado">
+                        O resultado aparecerá aqui
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            // Funcionalidade de troca de abas
+            const abas = document.querySelectorAll('.aba');
+            const conteudosAbas = document.querySelectorAll('.conteudo-aba');
+
+            abas.forEach(aba => {
+                aba.addEventListener('click', () => {
+                    const idAba = aba.getAttribute('data-aba');
+                    
+                    // Remove a classe ativa de todas as abas e conteúdos
+                    abas.forEach(a => a.classList.remove('ativa'));
+                    conteudosAbas.forEach(c => c.classList.remove('ativa'));
+                    
+                    // Adiciona a classe ativa à aba e conteúdo atuais
+                    aba.classList.add('ativa');
+                    document.getElementById(idAba).classList.add('ativa');
+                });
+            });
+
+            // Fatores de conversão
+            const fatoresDistancia = {
+                km: 1000,      // para metros
+                m: 1,          // unidade base
+                cm: 0.01,      // para metros
+                mm: 0.001,     // para metros
+                mi: 1609.34,   // para metros
+                yd: 0.9144,    // para metros
+                ft: 0.3048,    // para metros
+                in: 0.0254     // para metros
+            };
+
+            const fatoresMassa = {
+                t: 1000,       // para quilogramas
+                kg: 1,         // unidade base
+                g: 0.001,      // para quilogramas
+                mg: 0.000001,  // para quilogramas
+                lb: 0.453592,  // para quilogramas
+                oz: 0.0283495  // para quilogramas
+            };
+
+            const fatoresTempo = {
+                yr: 31536000,  // para segundos (365 dias)
+                mo: 2592000,   // para segundos (30 dias)
+                wk: 604800,    // para segundos
+                d: 86400,      // para segundos
+                h: 3600,       // para segundos
+                min: 60,       // para segundos
+                s: 1,          // unidade base
+                ms: 0.001      // para segundos
+            };
+
+            // Funções de conversão
+            function converter(valor, unidadeOrigem, unidadeDestino, fatores) {
+                // Converte para a unidade base
+                const valorNaUnidadeBase = valor * fatores[unidadeOrigem];
+                // Converte da unidade base para a unidade destino
+                return valorNaUnidadeBase / fatores[unidadeDestino];
+            }
+
+            // Conversão de distância
+            document.getElementById('converter-distancia').addEventListener('click', () => {
+                const valor = parseFloat(document.getElementById('valor-distancia').value);
+                const unidadeOrigem = document.getElementById('de-distancia').value;
+                const unidadeDestino = document.getElementById('para-distancia').value;
+                
+                if (isNaN(valor)) {
+                    document.getElementById('resultado-distancia').textContent = 'Por favor, insira um número válido';
+                    return;
+                }
+                
+                const resultado = converter(valor, unidadeOrigem, unidadeDestino, fatoresDistancia);
+                document.getElementById('resultado-distancia').textContent = `${valor} ${unidadeOrigem} = ${resultado} ${unidadeDestino}`;
+            });
+
+            // Conversão de massa
+            document.getElementById('converter-massa').addEventListener('click', () => {
+                // Implementar a conversão de massa aqui
+            });
+
+            // Conversão de tempo
+            document.getElementById('converter-tempo').addEventListener('click', () => {
+                // Implementar a conversão de tempo aqui
+            });
+        </script>
+
+    </body>
+</html>
